@@ -8,6 +8,31 @@ html,body{
     margin: 0px;
 
 
+    .search-overlay2{
+        width: 100%;
+        height:400vh;
+        background: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999999999;
+        display: none;
+
+        #overlayClose2{
+            position: absolute;
+            top: 50px;
+            right: 50px;    
+            font-size: 23px;
+            color:$main;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            background-color: white;
+            border: none;
+
+        }
+    }
     .search-overlay{
         width: 100%;
         height:400vh;
@@ -56,21 +81,88 @@ html,body{
         }
     }
     .modal{
+        top: 250px;
+        width: 990px;
+        max-height: 100%;
+        left: 500px !important;
+        z-index: 999999999999999999999 !important;
+
+        .modal-lg {
+            
+        }
 
         .modal-content{
-            width: 1190px !important;
-            height: 630px !important;
+            position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    pointer-events: auto;
+    background-color: white;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 0.3rem;
+    outline: 0;
+            .modal-header{
+              display: none;  
+            }
             
             .modal-body{
+                button{
+                    position: relative;
+                    top: 20px;
+                    left: 72%;
+                    width: 40px;
+                    height: 40px;
+                    cursor: pointer;
+                
+                }
+                button:focus{
+                    outline: none !important;
+                    box-shadow: none;
+                }
+                left: 280px;
+                padding: 20px;
+                .col-lg-5{
+                    // margin: 0;
+                    // padding: 0;
+                }
 
             > .productdetails-main__top{
                 
                 .productdetails-main__top__mainimage{
-                    width: 100%;
+                    margin-bottom: 20px;
+                    position: relative;
+                    display: block;
+                    width: 299px;
+                    position: relative;
+                    left: 0px;
+                    top: 0px;
+                    z-index: 999999999;
 
                     img{
-                        width: 450px !important;
-                        height: 400px !important;
+                        width: 100% !important;
+                    }
+                }
+                .productdetails-main__top__bottomimages{
+                    width: 312px;
+                    display: flex;
+                    gap: 13px;
+                    img{
+                        width: 65px;
+                    }
+                }
+                .productdetails-main__top__details{
+                    position: absolute;
+                    left: 370px;
+
+                    &__title{
+                        h3{
+                            font-size: 24px;
+
+                        }
+                       
+                    }
+                    p{
+                        width: 65%;
                     }
                 }
 
@@ -389,7 +481,7 @@ html,body{
                         }
                       }
                   }
-                  &__dropdown4{
+                  &__dropdown4{ 
                     top: 188%;
                       right: 186px;
                       position: absolute;
@@ -628,6 +720,9 @@ main {
                     
                     display: block !important;
                     text-align: center  ;
+
+                    &__content{
+                    }
                 }
             }
 
@@ -782,6 +877,9 @@ main {
 
         &__item{
             padding: 30px;
+            &__content{
+                margin-left: 12px;
+            }
         }
         .bgcolor{
             background-color: #fcedda;
@@ -937,6 +1035,10 @@ main {
                     justify-content: center;
                     border: 1px solid $main;
                     border-radius: 50%;
+                    button{
+                        border: 0;
+                        background-color: transparent;
+                    }
                 }
                 .product-icons3{
                     position: relative;
@@ -971,6 +1073,7 @@ main {
                     font-size: 24px;
                     border-radius: 50%;
                     background-color: white;
+                    color: goldenrod;
                 }
             }
         }
@@ -1201,6 +1304,20 @@ main {
                     position: absolute;
                     bottom: 0;
                     right: 90px;
+                    button{
+                        border: 0;
+                        outline: none !important;
+                        background-color: white;
+                    }
+                    button:focus{
+                        outline: none;
+                        background-color: transparent;
+                        box-shadow: none;
+                    }
+                    button:hover{
+                        background-color: 0 !important;
+                        outline: none;
+                    }
 
                     a{
                         text-align: center;

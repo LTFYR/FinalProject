@@ -19,13 +19,14 @@ header{
         z-index: 999999999;
 
         .offcanvas-body{
-            overflow: auto;
+            overflow: none;
             padding: 0px;
             margin: 0;
             
         .offcanvas-cart{
 
             &__price{
+                margin-top: 150px;
                 ul{
                     li{
                         margin: 0;
@@ -111,6 +112,8 @@ header{
 
             &__items{
                 padding: 10px;
+                overflow: auto;
+                max-height: 600px;
                 
 
                 ul{
@@ -195,10 +198,11 @@ header{
 
         .btn{
             position: relative;
-            border-color: white !important;
+            border: 0 !important;
             background-color: transparent; 
             overflow: hidden;
             box-shadow: none !important;
+            outline: none;
             
             i{
                 font-size: 24px;
@@ -229,6 +233,7 @@ header{
         .btn:focus {
             outline: none !important;
             box-shadow: none !important;
+            background-color: transparent;
           }
     }
 

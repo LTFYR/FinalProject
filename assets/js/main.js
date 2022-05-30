@@ -7,6 +7,7 @@ window.addEventListener("scroll",function(){
 //    }
 });
 
+// $('a').click( function(e) {e.preventDefault(); /*a tag i ucun yazilib ancaq bezi buglar var ona gore isletmedim*/ return false; } );
 
 ///grid and list view in shop//
 // $(".second").click(function () {
@@ -211,6 +212,7 @@ function basket(id, img, title, price){
         })
     }
     localStorage.setItem("items", JSON.stringify(items));
+    openCart ();
 };
 
 function openCart (){
@@ -232,7 +234,7 @@ function openCart (){
                  <span>${item.count}</span><p>x</p><span>$${item.item.price}</span>
                 </div>
             </div>
-            <div class="offcanvas-cart__closebtn">
+            <div id="${item.item.id}" class="offcanvas-cart__closebtn">
                 <button>x</button>
             </div>
         </li>`) 
@@ -243,16 +245,44 @@ function openCart (){
 
 openCart ();
 
-// const deleteFromCart = document.querySelector('.offcanvas-cart__closebtn > button');
-// deleteFromCart.addEventListener('click', () => {
-//     for(var j = 0; j < items.length; j++){
-//         if (items[j].id === id) {
-//             items.splice(i, 1);
-//             break;
-//           }
-// console.log("clicked")
+
+
+// function deleteFromCart(){
+
+    const deleteFromCart = document.querySelectorAll('.offcanvas-cart__closebtn > button');
+    console.log(deleteFromCart)
+deleteFromCart.forEach(btn=>btn.addEventListener('click', (e) => {
+    const target= e.target.parentElement
+    console.log(target.id)
+    let items = localStorage.getItem("items")
+    ?JSON.parse(localStorage.getItem("items"))
+    :[];
+    console.log("sa")
+    // items = items.filter(item=>item.item.id != target.id);
+    console.log(items)
+    for(var j = 0; j < items.length; j++){
+        console.log(items[j].item.id)
+
+        if (items[j].item.id === target.id) {
+            items.splice(j, 1);
+            break;
+          }
+console.log("clicked")
+}
+
+const products = document.querySelector(".products-cart");  
+
+const myLi = e.target.closest("li");
+console.log(myLi)
+
+products.removeChild(myLi)
+localStorage.setItem("items", JSON.stringify(items))
+document.getElementById('cartscount').innerText=items.length;
+
+})
+)
+
 // }
-// })
 
 
 
@@ -265,30 +295,30 @@ openCart ();
 //   productCount(false)
 // })
 
-// function productCount (product){
-//     const inputId =   document.getElementById("inputId").value;
-//     const newInputBtn1 = parseInt(inputId);
-//     // const decrease = newInputBtn1 - 1;
-//     let total = newInputBtn1;
-//     if(product == true){
-//         total = newInputBtn1 + 1;
-//     }
-//     if(product == false && newInputBtn1 > 0){
-//         total = newInputBtn1 - 1;
-//     }
-//     document.getElementById("quantityPr").innerText =  document.getElementById("inputId").value = total;
+function productCount (product){
+    const inputId =   document.getElementById("inputId").value;
+    const newInputBtn1 = parseInt(inputId);
+    // const decrease = newInputBtn1 - 1;
+    let total = newInputBtn1;
+    if(product == true){
+        total = newInputBtn1 + 1;
+    }
+    if(product == false && newInputBtn1 > 0){
+        total = newInputBtn1 - 1;
+    }
+    document.getElementById("quantityPr").innerText =  document.getElementById("inputId").value = total;
     
-// }
+}
 
-// const buyBtn = document.getElementById('buyNow');
-// buyBtn.addEventListener('click',function(){
-//     console.log("clicked")
-//     const inputId =  document.getElementById("inputId").value;
-//     const newInputBtn1 = parseInt(inputId);
-//     const total = newInputBtn1 * 275.00;
-//     document.getElementById('totalPr').innerText = total;
-//     document.getElementById("totalTb").innerText = total;
-// })
+    // const buyBtn = document.getElementById('buyNow');
+    // buyBtn.addEventListener('click',function(){
+    //     console.log("clicked")
+    //     const inputId =  document.getElementById("inputId").value;
+    //     const newInputBtn1 = parseInt(inputId);
+    //     const total = newInputBtn1 * 275.00;
+    //     document.getElementById('totalPr').innerText = total;
+    //     document.getElementById("totalTb").innerText = total;
+    // })
 
 
 
